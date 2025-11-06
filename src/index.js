@@ -2,10 +2,7 @@
 import { Impit } from "impit";
 
 const deepinfraAIOptionsDefault = {
-	model: "Qwen/Qwen3-30B-A3B", //
-	response_format: {
-		type: "none" // or json_object
-	}
+	model: "Qwen/Qwen3-30B-A3B"
 };
 
 const impitOptionsDefault = {
@@ -36,7 +33,7 @@ const deepinfraAI = async (messageSender, deepinfraAIOptions, impitOptions) => {
 	);
 
 	if (!response.body) throw new Error("Response stream not available");
-	
+
 	const reader = response.body.getReader();
 	const decoder = new TextDecoder();
 
@@ -72,9 +69,10 @@ const deepinfraAI = async (messageSender, deepinfraAIOptions, impitOptions) => {
 			}
 		}
 	}
-	
-	if (deepinfraAIOptions.response_format.type === "json_object") {
-		return JSON.parse(fullContent, null, 2)}
+
+	if (deepinfraAIOptions?.response_format?.type === "json_object") {
+		return JSON.parse(fullContent, null, 2);
+	}
 	return fullContent;
 };
 

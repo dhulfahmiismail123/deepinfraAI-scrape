@@ -1,6 +1,6 @@
 {
   "name": "deepinfraAI-scrape",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Library untuk berinteraksi dengan API DeepInfra (api.deepinfra.com)",
   "main": "src/index.js",
   "scripts": {
